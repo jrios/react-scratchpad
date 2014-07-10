@@ -12,9 +12,13 @@ var Product = React.createClass({
     eventer.emit("CartItemAdded", null, this.props.key);
   },
   render: function() {
-    return <div>
-             <strong>{ this.props.name }</strong>: { "$" + this.props.price }
-             <button onClick={this.addToCart}>Add to cart</button>
+    return <div className="row">
+             <div className="small-4 columns">
+               <strong>{ this.props.name }</strong>: { "$" + this.props.price }
+             </div>
+             <div className="small-5 columns">
+               <button className="small" onClick={this.addToCart}>Add to cart</button>
+             </div>
            </div>;
   }
 }); 
@@ -101,12 +105,13 @@ var Cart = React.createClass({
     var cartItems = this.state.cartItems.map(function renderCartItem(cartItem) {
       return <CartItem itemName={cartItem.name} quantity={cartItem.quantity} price={cartItem.price} />
     });
+
     return (
       <div>
         <h3>Shopping Cart</h3>
-        { cartItems }
+        { cartItems.length == 0 ? "Your cart is empty" : cartItems }
         <hr />
-        <strong>Total:</strong> { "$" + this.calculateTotal().toFixed(2) }
+        <div className="right"><strong>Total:</strong> { "$" + this.calculateTotal().toFixed(2) }</div>
       </div>
     );
   }

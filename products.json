@@ -1,6 +1,6 @@
 [
-  { id: 1, productName: "Banana", price: 0.99 },
-  { id: 2, productName: "Apple", price: 1.25 },
-  { id: 3, productName: "Ribeye", price: 6.99 },
-  { id: 4, productName: "Pork Chop", price: 5.25 }
+  { "id": 1, "productName": "Banana", "price" : 0.99 },
+  { "id": 2, "productName": "Apple", "price": 1.25 },
+  { "id": 3, "productName": "Ribeye", "price": 6.99 },
+  { "id": 4, "productName": "Pork Chop", "price": 5.25 }
 ]
