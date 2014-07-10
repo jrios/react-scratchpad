@@ -1,0 +1,34 @@
+{
+  "name": "react-scratchpad",
+  "version": "0.0.0",
+  "description": "scratchpad for examples using reactjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com:jrios/react-scratchpad"
+  },
+  "author": "Jake Rios",
+  "license": "Apache 2",
+  "bugs": {
+    "url": "https://github.com/jrios/react-scratchpad/issues"
+  },
+  "homepage": "https://github.com/jrios/react-scratchpad",
+  "dependencies": {
+    "envify": "^1.2.1",
+    "react": "^0.10.0"
+  },
+  "devDependencies": {
+    "bower": "^1.3.7",
+    "browserify": "^4.2.0",
+    "lodash-node": "^2.4.1",
+    "reactify": "^0.13.1"
+  },
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "react-scratchpad",
+  "version": "0.0.0",
+  "authors": [
+    "Jake Rios <rios.jacob@gmail.com>"
+  ],
+  "description": "scratchpad for examples using react",
+  "main": "index.js",
+  "license": "Apache 2",
+  "homepage": "https://github.com/jrios/react-scratchpad",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
