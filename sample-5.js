@@ -9,19 +9,21 @@ var eventer = new EventEmitter();
 
 var Product = React.createClass({
   addToCart: function() {
-    eventer.emit("CartItemAdded", null, this.props.key);
+    eventer.emit("CartItemAdded", null, this.props.product.id);
   },
   render: function() {
-    return <div className="row">
-             <div className="small-4 columns">
-               <strong>{ this.props.name }</strong>: { "$" + this.props.price }
-             </div>
-             <div className="small-5 columns">
-               <button className="small" onClick={this.addToCart}>Add to cart</button>
-             </div>
-           </div>;
+    return (
+      <div className="row">
+        <div className="small-4 columns">
+          <strong>{ this.props.product.productName }</strong>: { "$" + this.props.product.price }
+        </div>
+         <div className="small-5 columns">
+           <button className="small" onClick={this.addToCart}>Add to cart</button>
+         </div>
+      </div>
+      );
   }
-}); 
+});
 
 var ProductList = React.createClass({
   getInitialState: function() {
@@ -31,7 +33,7 @@ var ProductList = React.createClass({
   },
   render: function() {
     var products = this.state.products.map(function renderProduct(p) {
-      return <Product key={p.id} name={p.productName} price={p.price} />;
+      return <Product key={p.id} product={p} />;
     });
 
     return (
@@ -75,9 +77,7 @@ var Cart = React.createClass({
 
     var cartItems = this.state.cartItems;
 
-    var cartItemQuantity = _.where(cartItems, function findByProductId(cartItem) {
-      return cartItem.productId == productId;
-    }).length;
+    var cartItemQuantity = _.where(cartItems, { 'productId': productId }).length;
 
     if(cartItemQuantity == 0) {
       cartItems.push({
@@ -103,7 +103,7 @@ var Cart = React.createClass({
   },
   render: function() {
     var cartItems = this.state.cartItems.map(function renderCartItem(cartItem) {
-      return <CartItem itemName={cartItem.name} quantity={cartItem.quantity} price={cartItem.price} />
+      return <CartItem key={cartItem.name} itemName={cartItem.name} quantity={cartItem.quantity} price={cartItem.price} />
     });
 
     return (
@@ -117,5 +117,5 @@ var Cart = React.createClass({
   }
 });
 
-React.renderComponent(<ProductList />, document.getElementById("product-list"));
-React.renderComponent(<Cart />, document.getElementById("shopping-cart"));
+React.render(<ProductList />, document.getElementById("product-list"));
+React.render(<Cart />, document.getElementById("shopping-cart"));

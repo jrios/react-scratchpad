@@ -27,4 +27,4 @@ var Detonator = React.createClass({
 
 
 
-React.renderComponent(<Detonator />, document.body);
+React.render(<Detonator />, document.body);

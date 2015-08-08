@@ -9,7 +9,7 @@ var Product = React.createClass({
              <strong>{ this.props.name }</strong>: { "$" + this.props.price }
            </div>;
   }
-}); 
+});
 
 var ProductList = React.createClass({
   getInitialState: function() {
@@ -31,4 +31,4 @@ var ProductList = React.createClass({
   }
 });
 
-React.renderComponent(<ProductList />, document.body);
+React.render(<ProductList />, document.body);
